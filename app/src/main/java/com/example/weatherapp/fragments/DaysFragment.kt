@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weatherapp.R
@@ -15,6 +16,7 @@ import com.example.weatherapp.model.Weather
 import com.example.weatherapp.repository.WeatherRepo
 import com.example.weatherapp.ui.viewmodel.WeatherAdapter
 import com.example.weatherapp.ui.viewmodel.WeatherViewModel
+import com.example.weatherapp.ui.viewmodel.WeatherViewModelFactory
 
 
 class DaysFragment : Fragment() {
@@ -23,7 +25,6 @@ class DaysFragment : Fragment() {
     private val binding: FragmentDaysBinding get() = _binding!!
 
     private lateinit var viewmodel: WeatherViewModel
-    private lateinit var viewmodel2: WeatherViewModel
     private lateinit var weatherAdapter: WeatherAdapter
 
     override fun onCreateView(
@@ -39,38 +40,40 @@ class DaysFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewmodel = ViewModelProvider(
             this,
-            WeatherViewModel.WeatherViewModelFactory(WeatherRepo(ApiManager()))
+            WeatherViewModelFactory(WeatherRepo(ApiManager()))
         ).get(WeatherViewModel::class.java)
 
-       //viewmodel.weatherInfo.observe(viewLifecycleOwner){
-       //  weatherAdapter.todos = it
-      // }
+        //   viewmodel.weatherInfo.observe(viewLifecycleOwner, Observer {
+        //   weatherAdapter.todos = it
+        //  })
 
-        //Testing Recyclerviews with fake data
 
+       // Testing Recyclerviews with fake data
+        weatherAdapter = WeatherAdapter()
+        binding.rvWeatherDays.adapter = weatherAdapter
+        binding.rvWeatherDays.layoutManager = LinearLayoutManager(requireContext())
         var contactList = mutableListOf(
-            Weather(1,"Monday" , 70 ),
-            Weather( 2,"Tuesday", 65 ),
-            Weather( 3,"Wednesday", 60 ),
-            Weather( 4,"Thursday", 55 ),
-            Weather(5,"Friday", 56 ),
-            Weather( 6,"Saturday", 80),
-            Weather(7,"Sunday", 82 )
+            Weather(1, 70, "Monday", true),
+            Weather(1, 65, "Tuesday", true),
+            Weather(1, 50, "Wednesday", true),
+            Weather(1, 55, "Thursday", true),
+            Weather(1, 67, "Friday", true),
+            Weather(1, 80, "Saturday", true),
+            Weather(1, 90, "Sunday", true)
         )
-
         weatherAdapter.todos = contactList
 
     }
 
 
-private fun setupRecyclerView() = binding.rvWeatherDays.apply{
-    weatherAdapter = WeatherAdapter()
-    adapter = weatherAdapter
-    layoutManager = LinearLayoutManager(requireContext())
-}
+    private fun setupRecyclerView() = binding.rvWeatherDays.apply {
+        weatherAdapter = WeatherAdapter()
+        adapter = weatherAdapter
+        layoutManager = LinearLayoutManager(requireContext())
 
-
+    }
 
 }

@@ -39,10 +39,6 @@ class CurrentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewmodel = ViewModelProvider(
-            this,
-            WeatherViewModel.WeatherViewModelFactory(WeatherRepo(ApiManager()))
-        ).get(WeatherViewModel::class.java)
 
         val number = "75"
         binding.tvTemperature.text = number
