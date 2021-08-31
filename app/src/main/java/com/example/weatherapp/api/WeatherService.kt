@@ -15,9 +15,8 @@ interface WeatherService {
 
 }
 
-
-
 /*
+Actual function that will be used
 
 @GET("data/2.5/onecall")
     suspend fun getWeather(
