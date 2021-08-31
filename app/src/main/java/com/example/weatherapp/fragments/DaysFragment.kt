@@ -46,16 +46,12 @@ class DaysFragment : Fragment() {
             WeatherViewModelFactory(WeatherRepo(ApiManager()))
         ).get(WeatherViewModel::class.java)
 
-        //   viewmodel.weatherInfo.observe(viewLifecycleOwner, Observer {
-        //   weatherAdapter.todos = it
+        //  viewmodel.weatherInfo.observe(viewLifecycleOwner, Observer {
+        //   weatherAdapter.weather = it
         //  })
 
-
-       // Testing Recyclerviews with fake data
-        weatherAdapter = WeatherAdapter()
-        binding.rvWeatherDays.adapter = weatherAdapter
-        binding.rvWeatherDays.layoutManager = LinearLayoutManager(requireContext())
-        var contactList = mutableListOf(
+        //Testing Recyclerviews with fake data
+        var exampleList = mutableListOf(
             Weather(1, 70, "Monday", true),
             Weather(1, 65, "Tuesday", true),
             Weather(1, 50, "Wednesday", true),
@@ -64,10 +60,9 @@ class DaysFragment : Fragment() {
             Weather(1, 80, "Saturday", true),
             Weather(1, 90, "Sunday", true)
         )
-        weatherAdapter.todos = contactList
+        weatherAdapter.weather = exampleList
 
     }
-
 
     private fun setupRecyclerView() = binding.rvWeatherDays.apply {
         weatherAdapter = WeatherAdapter()

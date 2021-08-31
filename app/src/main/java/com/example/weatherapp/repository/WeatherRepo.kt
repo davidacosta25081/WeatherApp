@@ -8,7 +8,6 @@ import java.io.IOException
 
 class WeatherRepo(private val apiManager: ApiManager) {
 
-
     suspend fun getWeather(): List<Weather> {
         return try {
             val response = apiManager.getWeather()

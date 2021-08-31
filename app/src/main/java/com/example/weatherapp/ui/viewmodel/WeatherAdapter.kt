@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.databinding.ItemDaysBinding
 import com.example.weatherapp.model.Weather
 
-class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() {
+class WeatherAdapter() : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() {
 
     inner class WeatherViewHolder(val binding: ItemDaysBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -24,14 +24,14 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() 
     }
 
     val differ = AsyncListDiffer(this, diffCallback)
-    var todos: List<Weather>
+    var weather: List<Weather>
         get() = differ.currentList
         set(value) {
             differ.submitList(value)
         }
 
 
-    override fun getItemCount() = todos.size
+    override fun getItemCount() = weather.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherViewHolder {
         return WeatherViewHolder(
@@ -45,9 +45,9 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() 
 
     override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
         holder.binding.apply {
-            val todo = todos[position]
-            tvDays.text = todo.title.toString()
-            tvDayTemp.text = todo.id.toString()
+            val days = weather[position]
+            tvDays.text = days.title.toString()
+            tvDayTemp.text = days.id.toString()
 
         }
     }
