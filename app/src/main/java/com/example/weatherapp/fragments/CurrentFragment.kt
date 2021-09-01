@@ -14,8 +14,9 @@ import com.example.weatherapp.api.ApiManager
 import com.example.weatherapp.databinding.FragmentCurrentBinding
 import com.example.weatherapp.model.Weather
 import com.example.weatherapp.repository.WeatherRepo
-import com.example.weatherapp.ui.viewmodel.WeatherAdapter
+
 import com.example.weatherapp.ui.viewmodel.WeatherViewModel
+import com.example.weatherapp.ui.viewmodel.WeatherViewModelFactory
 
 
 class CurrentFragment : Fragment() {
@@ -24,7 +25,7 @@ class CurrentFragment : Fragment() {
     private val binding: FragmentCurrentBinding get() = _binding!!
 
     private lateinit var viewmodel: WeatherViewModel
-    private lateinit var weatherAdapter: WeatherAdapter
+   // private lateinit var weatherAdapter: WeatherAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,8 +41,20 @@ class CurrentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val number = "75"
-        binding.tvTemperature.text = number
+        viewmodel = ViewModelProvider(
+            this,
+            WeatherViewModelFactory(WeatherRepo(ApiManager()))
+        ).get(WeatherViewModel::class.java)
+
+        //
+      //  viewmodel.weatherInfo.observe(viewLifecycleOwner, Observer {
+        ////    binding.tvTemperature.text = it.data
+      //  })
+
+
+
+       // val number = "75"
+
 
     }
 

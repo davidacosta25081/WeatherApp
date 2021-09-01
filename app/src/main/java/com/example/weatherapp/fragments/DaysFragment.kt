@@ -14,8 +14,7 @@ import com.example.weatherapp.databinding.FragmentCurrentBinding
 import com.example.weatherapp.databinding.FragmentDaysBinding
 import com.example.weatherapp.model.Weather
 import com.example.weatherapp.repository.WeatherRepo
-import com.example.weatherapp.ui.viewmodel.WeatherAdapter
-import com.example.weatherapp.ui.viewmodel.WeatherViewModel
+//import com.example.weatherapp.ui.viewmodel.WeatherViewModel
 import com.example.weatherapp.ui.viewmodel.WeatherViewModelFactory
 
 
@@ -24,8 +23,8 @@ class DaysFragment : Fragment() {
     private var _binding: FragmentDaysBinding? = null
     private val binding: FragmentDaysBinding get() = _binding!!
 
-    private lateinit var viewmodel: WeatherViewModel
-    private lateinit var weatherAdapter: WeatherAdapter
+    //private lateinit var viewmodel: WeatherViewModel
+    //private lateinit var weatherAdapter: WeatherAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,11 +32,12 @@ class DaysFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDaysBinding.inflate(inflater, container, false)
-        setupRecyclerView()
         return binding.root
 
     }
+}
 
+/*
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -72,3 +72,4 @@ class DaysFragment : Fragment() {
     }
 
 }
+*/

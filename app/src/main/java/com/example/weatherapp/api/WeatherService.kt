@@ -1,5 +1,6 @@
 package com.example.weatherapp.api
 
+import com.example.weatherapp.model.CurrentWeatherResponse
 import com.example.weatherapp.model.Weather
 import com.example.weatherapp.utils.Constants.Companion.API_KEY
 import retrofit2.Response

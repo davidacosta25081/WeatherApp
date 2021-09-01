@@ -1,3 +1,4 @@
+/*
 package com.example.weatherapp.ui.viewmodel
 
 import android.view.LayoutInflater
@@ -51,4 +52,4 @@ class WeatherAdapter() : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>(
 
         }
     }
-}
+}*/
