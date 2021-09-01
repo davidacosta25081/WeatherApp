@@ -8,20 +8,11 @@ import retrofit2.http.Query
 
 interface WeatherService {
 
-
-    @GET("/todos")
+    @GET("data/2.5/weather")
     suspend fun getWeather(
-    ): Response<List<Weather>>
+        @Query("q") cityName: String,
+        @Query("appid") APIKEY: String
+    ): Response<CurrentWeatherResponse>
+
 
 }
-
-/*
-Actual function that will be used
-
-@GET("data/2.5/onecall")
-    suspend fun getWeather(
-        @Query("lat") lat: Double,
-        @Query("lon") lon: Double ,
-        @Query("appid") APIKEY: String
-    ): Response<List<Weather>>
- */

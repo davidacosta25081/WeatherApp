@@ -11,7 +11,7 @@ import java.lang.IllegalArgumentException
 class WeatherViewModel(private val weatherRepo: WeatherRepo) : ViewModel() {
 
     private var _weatherInfo: MutableLiveData<List<Weather>> = MutableLiveData()
-    val weatherInfo: LiveData<List<Weather>?> get() = _weatherInfo
+    val weatherInfo: LiveData<List<Weather>> get() = _weatherInfo
 
     init {
         getWeather()
