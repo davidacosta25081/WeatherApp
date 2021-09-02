@@ -23,8 +23,8 @@ interface WeatherService {
         @Query("lat") latitud: String,
         @Query("lon") longitud: String,
         @Query("appid") APIKEY: String,
-        @Query("units") exclude: String = "imperial",
-        @Query("exclude") units: String = "hourly,minutely"
+        @Query("units") units: String = "imperial",
+        @Query("exclude") exclude: String = "hourly,minutely"
     ): Response<DailyWeather>
 
 

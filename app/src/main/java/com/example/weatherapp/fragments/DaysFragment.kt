@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,14 +31,15 @@ class DaysFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDaysBinding.inflate(inflater, container, false)
+
         return binding.root
 
     }
 
-/*
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupRecyclerView()
+   setupRecyclerView()
 
         viewmodel = ViewModelProvider(
             this,
@@ -59,5 +59,5 @@ class DaysFragment : Fragment() {
         layoutManager = LinearLayoutManager(requireContext())
 
     }
-*/
+
 }

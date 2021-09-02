@@ -9,8 +9,8 @@ import com.example.weatherapp.databinding.ItemDaysBinding
 import com.example.weatherapp.model.Daily
 
 
-class WeatherAdapter() : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() {
-    inner class WeatherViewHolder(val binding: ItemDaysBinding) :
+class WeatherAdapter() : RecyclerView.Adapter<WeatherAdapter.DaysViewHolder>() {
+    inner class DaysViewHolder(val binding: ItemDaysBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     private val diffCallback = object : DiffUtil.ItemCallback<Daily>() {
@@ -30,8 +30,8 @@ class WeatherAdapter() : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>(
 
 
     override fun getItemCount() = weather.size
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherViewHolder {
-        return WeatherViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DaysViewHolder {
+        return DaysViewHolder(
             ItemDaysBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -39,7 +39,7 @@ class WeatherAdapter() : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>(
             )
         )
     }
-    override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DaysViewHolder, position: Int) {
         holder.binding.apply {
             val day = weather[position]
             tvDays.text = day.temp.max.toString()
