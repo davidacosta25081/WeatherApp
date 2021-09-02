@@ -12,14 +12,4 @@ data class CurrentWeatherResponse(
     val weather: List<Weather>,
     val base: String,
     val main: Main,
-
-    //val visibility: String,
-    //val wind: Wind,
-    //val clouds: Clouds,
-    //val dt: Int,
-    //val sys: Sys ,
-    //val timeZone : Int ,
-    //val id: Int ,
-    //val name: String ,
-    //val cod: String
-)
+    )

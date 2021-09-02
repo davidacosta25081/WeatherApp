@@ -16,9 +16,11 @@ class ApiManager {
         weatherService = retrofit.create(WeatherService::class.java)
     }
 
-    suspend fun getWeather() : Response<CurrentWeatherResponse> {
-        return weatherService.getWeather("atlanta", API_KEY)
-    }
+    suspend fun getWeather() =
+         weatherService.getWeather("atlanta", API_KEY)
+
+    suspend fun getDailyWeather() =
+        weatherService.getDailyWeather("33.749001","-84.387978", API_KEY)
 
 }
 

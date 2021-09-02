@@ -24,9 +24,29 @@ class WeatherRepo(private val apiManager: ApiManager) {
             Log.d(TAG, ex.toString())
             Resource.Error(ex.toString())
         }
-
         emit(resource)
     }
+
+
+    fun getDailyWeather() = flow {
+
+        val resource = try {
+            val response = apiManager.getDailyWeather()
+            if (response.isSuccessful && response.body() != null) {
+                Resource.Success(response.body()!!)
+            } else {
+                Resource.Error(response.errorBody().toString())
+            }
+        } catch (ex: Exception) {
+            Log.d(TAG, ex.toString())
+            Resource.Error(ex.toString())
+        }
+        emit(resource)
+    }
+
+
+
+
 
 
     companion object {
