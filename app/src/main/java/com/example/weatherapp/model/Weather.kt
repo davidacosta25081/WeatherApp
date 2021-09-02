@@ -7,5 +7,5 @@ data class Weather(
 val id: Int ,
 val main: String ,
 val description: String ,
-val item: String
+val icon: String
 )

@@ -19,7 +19,6 @@ class WeatherViewModel(private val weatherRepo: WeatherRepo) : ViewModel() {
         getWeather()
     }
 
-
     private fun getWeather() {
         viewModelScope.launch {
             weatherRepo.getWeather().collect {

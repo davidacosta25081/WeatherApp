@@ -12,7 +12,8 @@ interface WeatherService {
     @GET("data/2.5/weather")
     suspend fun getWeather(
         @Query("q") cityName: String,
-        @Query("appid") APIKEY: String
+        @Query("appid") APIKEY: String,
+        @Query("units") units: String = "imperial"
     ): Response<CurrentWeatherResponse>
 
 

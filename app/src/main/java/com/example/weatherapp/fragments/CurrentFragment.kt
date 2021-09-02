@@ -25,7 +25,7 @@ class CurrentFragment : Fragment() {
     private val binding: FragmentCurrentBinding get() = _binding!!
 
     private lateinit var viewmodel: WeatherViewModel
-   // private lateinit var weatherAdapter: WeatherAdapter
+    // private lateinit var weatherAdapter: WeatherAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +33,6 @@ class CurrentFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCurrentBinding.inflate(inflater, container, false)
-        //setupRecyclerView()
         return binding.root
     }
 
@@ -46,16 +45,13 @@ class CurrentFragment : Fragment() {
             WeatherViewModelFactory(WeatherRepo(ApiManager()))
         ).get(WeatherViewModel::class.java)
 
-        //
-      //  viewmodel.weatherInfo.observe(viewLifecycleOwner, Observer {
-        ////    binding.tvTemperature.text = it.data
-      //  })
-
-
-
-       // val number = "75"
-
-
+        viewmodel.weatherInfo.observe(viewLifecycleOwner, Observer {
+            with(binding) {
+                tvTemperature.text = it.data!!.main.temp.toString()
+                tvDescription.text = it.data!!.weather[0].description
+                tvTemperatureHigh.text = it.data!!.main.tempMax.toString()
+                tvTemperatureLow.text = it.data!!.main.tempMin.toString()
+            }
+        })
     }
-
 }

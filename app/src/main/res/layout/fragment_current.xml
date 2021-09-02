@@ -24,15 +24,44 @@
         android:textSize="50sp" />
 
     <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:layout_marginStart="160dp"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        tools:text="description" />
+
+    <TextView
         android:id="@+id/tvTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        tools:text="@string/current"
+        android:layout_marginTop="35dp"
         android:textColor="@color/white"
         android:textSize="40sp"
+        tools:text="78" />
 
-        />
+    <TextView
+        android:id="@+id/tvTemperatureHigh"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        tools:text="100" />
+
+    <TextView
+        android:id="@+id/tvTemperatureLow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="220dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        tools:text="10" />
+
 
 </FrameLayout>

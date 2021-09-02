@@ -5,6 +5,10 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Main(
-    val temp : Long ,
-    val humidity: Int
+    val temp : Double ,
+    val humidity: Int ,
+    @get:Json(name="temp_min")
+    val tempMin: Double,
+    @get:Json(name = "temp_max")
+    val tempMax: Double
     )
